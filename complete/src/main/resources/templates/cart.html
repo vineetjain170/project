@@ -1,0 +1,114 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+	<title>Your Cart</title>  
+	<style>  
+		body {  
+			font-family: Arial, sans-serif;  
+			background-color: #f2f2f2;  
+		}  
+		h1 {  
+			text-align: center;  
+			color: #333;  
+		}  
+		form {  
+			background-color: #fff;  
+			border-radius: 5px;  
+			padding: 20px;  
+			width: 400px;  
+			margin: 0 auto;  
+			box-shadow: 0px 0px 10px #ccc;  
+		}  
+		label {  
+			display: inline-block;  
+			width: 200px;  
+			text-align: right;  
+			margin-right: 10px;  
+			color: #333;  
+		}  
+		input[type="text"] {  
+			padding: 5px;  
+			border-radius: 5px;  
+			border: 1px solid #ccc;  
+			width: 100px;  
+			font-size: 16px;  
+			margin-left: 10px;  
+		}  
+		input[type="submit"] {  
+			background-color: #4CAF50;  
+			color: #fff;  
+			border: none;  
+			padding: 10px 20px;  
+			border-radius: 5px;  
+			cursor: pointer;  
+			font-size: 16px;  
+			margin-left: 130px;  
+		}  
+		input[type="submit"]:hover {  
+			background-color: #3e8e41;  
+		}  
+		table {  
+			width: 100%;  
+			border-collapse: collapse;  
+			margin-top: 20px;  
+		}  
+		table th {  
+			background-color: #333;  
+			color: #fff;  
+			padding: 10px;  
+			text-align: left;  
+		}  
+		table td {  
+			border: 1px solid #ccc;  
+			padding: 10px;  
+		}  
+		.proceed {  
+			background-color: #4CAF50;  
+			color: #fff;  
+			border: none;  
+			padding: 10px 20px;  
+			border-radius: 5px;  
+			cursor: pointer;  
+			font-size: 16px;  
+			margin-top: 20px;  
+			float: right;  
+		}  
+		.proceed:hover {  
+			background-color: #3e8e41;  
+		}  
+	</style>  
+</head>  
+<body>  
+	<h1>Your Cart</h1>  
+	<form action="/remove" method="post">  
+		<label for="productID">Enter Product ID to Remove:</label>  
+		<input type="text" id="productID" name="productID" required>  
+		<input type="submit" value="Remove">  
+	</form>  
+	<form action="/payment" method="POST">  
+		<table>  
+			<tr>  
+				<th>Product ID</th>  
+				<th>Description</th>  
+				<th>Amount</th>  
+			</tr> 
+			<tr th:each="product : ${products}">
+                <td th:text="${product[0]}"></td>
+                <td th:text="${product[1]}"></td>
+                <td th:text="${product[2]}"></td>
+            </tr> 
+			<!--<tr>  
+				<td>12345</td>  
+				<td>Product 1</td>  
+				<td>$10.00</td>  
+			</tr>  
+			<tr>  
+				<td>67890</td>  
+				<td>Product 2</td>  
+				<td>$20.00</td>  
+			</tr> --> 
+		</table>  
+		<input type="submit" value="Proceed to Payment" class="proceed">  
+	</form>  
+</body>  
+</html>  

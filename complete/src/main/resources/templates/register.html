@@ -1,0 +1,72 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+	<title>User Registration</title>  
+	<style>  
+		body {  
+			font-family: Arial, sans-serif;  
+			background-color: #f2f2f2;  
+		}  
+		h1 {  
+			text-align: center;  
+			color: #333;  
+		}  
+		form {  
+			background-color: #fff;  
+			border-radius: 5px;  
+			padding: 20px;  
+			width: 400px;  
+			margin: 0 auto;  
+			box-shadow: 0px 0px 10px #ccc;  
+		}  
+		label {  
+			display: inline-block;  
+			width: 120px;  
+			text-align: right;  
+			margin-right: 10px;  
+			color: #333;  
+		}  
+		input[type="text"],  
+		input[type="email"],  
+		input[type="password"] {  
+			padding: 5px;  
+			border-radius: 5px;  
+			border: 1px solid #ccc;  
+			width: 250px;  
+			font-size: 16px;  
+		}  
+		input[type="submit"] {  
+			background-color: #4CAF50;  
+			color: #fff;  
+			border: none;  
+			padding: 10px 20px;  
+			border-radius: 5px;  
+			cursor: pointer;  
+			font-size: 16px;  
+			margin-left: 130px;  
+		}  
+		input[type="submit"]:hover {  
+			background-color: #3e8e41;  
+		}  
+		a {  
+			color: #007bff;  
+			text-decoration: none;  
+		}  
+	</style>  
+</head>  
+<body>  
+	<h1>User Registration</h1>  
+	<form th:action="@{/register}" th:object="${user}" method="post">  
+		<label for="fullName">Full Name:</label>  
+		<input type="text" th:field="*{fullname}" name="fullname" required id="fullName"><br><br>  
+		<label for="email">Email ID:</label>  
+		<input type="email" th:field="*{email}" name="email" id="email" required><br><br>  
+		<label for="password">Password:</label>  
+		<input type="password" th:field="*{password}" id="password" name="password" required><br><br>  
+		<label for="confirmPassword">Confirm Password:</label>  
+		<input type="password" th:field="*{confirm_password}" id="confirmPassword" name="confirmPassword" required><br><br>  
+		<input type="submit" value="Register"><br><br>  
+	</form>  
+	<p>Already have an account? <a href="/login">Login here</a></p>  
+</body>  
+</html>  

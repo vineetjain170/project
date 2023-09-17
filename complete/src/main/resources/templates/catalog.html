@@ -1,0 +1,110 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+	<title>Product Catalog</title>  
+	<style>  
+		body {  
+			font-family: Arial, sans-serif;  
+			background-color: #f2f2f2;  
+			margin: 0;  
+			padding: 0;  
+		}  
+  
+		h1 {  
+			font-size: 36px;  
+			color: #333;  
+			text-align: center;  
+			margin-top: 50px;  
+		}  
+  
+		form {  
+			margin: 50px auto;  
+			width: 80%;  
+			background-color: #fff;  
+			padding: 20px;  
+			border-radius: 10px;  
+			box-shadow: 0 0 10px rgba(0,0,0,0.2);  
+		}  
+  
+		table {  
+			width: 100%;  
+			border-collapse: collapse;  
+			margin-bottom: 20px;  
+		}  
+  
+		th, td {  
+			padding: 10px;  
+			text-align: left;  
+			border-bottom: 1px solid #ddd;  
+		}  
+  
+		th {  
+			background-color: #f2f2f2;  
+			color: #333;  
+		}  
+  
+		input[type="checkbox"] {  
+			margin: 0;  
+			padding: 0;  
+			width: 20px;  
+			height: 20px;  
+			vertical-align: middle;  
+			position: relative;  
+			top: -1px;  
+			overflow: hidden;  
+		}  
+  
+		input[type="submit"] {  
+			background-color: #4CAF50;  
+			color: #fff;  
+			border: none;  
+			padding: 10px 20px;  
+			font-size: 16px;  
+			border-radius: 5px;  
+			cursor: pointer;  
+			transition: background-color 0.3s ease;  
+		}  
+  
+		input[type="submit"]:hover {  
+			background-color: #3e8e41;  
+		}  
+  
+	</style>  
+</head>  
+<body>  
+	<h1 th:text="'Hello! ' + ${user.fullname} + ' Please chose from our Product Catalog'"/>
+	<form action="/catalog" method="post">  
+		<table>  
+			<thead>  
+				<tr>  
+					<th>Name</th>  
+					<th>Description</th>  
+					<th>Amount</th>  
+					<th>Select</th>  
+				</tr>  
+			</thead>  
+			<tbody>  
+				<tr>  
+					<td>Product 1</td>  
+					<td>Description of Product 1</td>  
+					<td>$10.00</td>  
+					<td><input type="checkbox" name="product1" value="product1"></td>  
+				</tr>  
+				<tr>  
+					<td>Product 2</td>  
+					<td>Description of Product 2</td>  
+					<td>$20.00</td>  
+					<td><input type="checkbox" name="product2" value="product2"></td>  
+				</tr>  
+				<tr>  
+					<td>Product 3</td>  
+					<td>Description of Product 3</td>  
+					<td>$30.00</td>  
+					<td><input type="checkbox" name="product3" value="product3"></td>  
+				</tr>  
+			</tbody>  
+		</table>  
+		<input type="submit" value="Add to Cart">  
+	</form>  
+</body>  
+</html>  
